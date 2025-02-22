@@ -24,3 +24,9 @@ class P3MergeTwoSortedList {
         return result.next
     }
 }
+
+fun main() {
+    println("merge 2 sorted lists")
+    val result = P3MergeTwoSortedList().mergeTwoLists(null, null)
+    println(result)
+}
