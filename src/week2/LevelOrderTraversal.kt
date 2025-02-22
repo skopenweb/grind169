@@ -10,35 +10,35 @@ class TreeNode(var `val`: Int) {
 
 class LevelOrderTraversal {
 
-    fun levelOrder2(n: TreeNode?): List<List<Int>> {
-        val result = LinkedList<List<Int>>()
-        val nodes = LinkedList<TreeNode?>().map{it}
-        val currLevel = LinkedList<Int>()
-
-        nodes.apply {
-            offer(n)
-            offer(null)
-        }
-        while (nodes.isNotEmpty()) {
-            val node = nodes.poll()
-            if (node == null) {
-                result.offer(currLevel.toList())
-                currLevel.clear()
-                if (nodes.isNotEmpty()) {
-                    nodes.offer(null)
-                }
-            } else {
-                currLevel.offer(node.`val`)
-                if (node.left != null) {
-                    nodes.offer(node.left)
-                }
-                if (node.right != null) {
-                    nodes.offer(node.right)
-                }
-            }
-        }
-        return result
-    }
+//    fun levelOrder2(n: TreeNode?): List<List<Int>> {
+//        val result = LinkedList<List<Int>>()
+//        val nodes = LinkedList<TreeNode?>().map{it}
+//        val currLevel = LinkedList<Int>()
+//
+//        nodes.apply {
+//            offer(n)
+//            offer(null)
+//        }
+//        while (nodes.isNotEmpty()) {
+//            val node = nodes.poll()
+//            if (node == null) {
+//                result.offer(currLevel.toList())
+//                currLevel.clear()
+//                if (nodes.isNotEmpty()) {
+//                    nodes.offer(null)
+//                }
+//            } else {
+//                currLevel.offer(node.`val`)
+//                if (node.left != null) {
+//                    nodes.offer(node.left)
+//                }
+//                if (node.right != null) {
+//                    nodes.offer(node.right)
+//                }
+//            }
+//        }
+//        return result
+//    }
 
     fun levelOrder(root: TreeNode?): List<List<Int>> {
         val result = LinkedList<List<Int>>()
@@ -115,7 +115,7 @@ fun main() {
     root.left = l1
     root.right = r1
 
-    val result = LevelOrderTraversal().levelOrder2(root)
+    val result = LevelOrderTraversal().levelOrder(root)
 
     for (l in result) {
         println()
